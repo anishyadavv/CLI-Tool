@@ -16,4 +16,4 @@ async function listWallets() {
   });
 }
 
-listWallets();
+module.exports = listWallets;

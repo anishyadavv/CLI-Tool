@@ -15,4 +15,5 @@ async function createWallet(){
   console.log(`Wallet created with ID: ${wallet.id}`);
   console.log(`Mnemonic: ${wallet.mnemonic}`);
 };
-createWallet();
+
+module.exports = createWallet;

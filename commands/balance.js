@@ -1,19 +1,21 @@
 const axios = require("axios");
 const getAddress = require("./address");
+const fs = require("fs");
+const { promisify } = require("util");
+const readFile = promisify(fs.readFile);
 
-const address = getAddress(
-  "maze lounge bone bomb large unfold multiply bone multiply miss learn silent"
-);
+async function getBalance(id) {
+  const path = `./wallets/${id}.json`;
+  const content = await readFile(path, "utf8");
+  const wallet = JSON.parse(content);
 
-async function getBalance(address) {
+  const mnemonic = wallet.mnemonic;
+  const address = getAddress(mnemonic);
   const response = await axios.get(
     `https://api.blockcypher.com/v1/btc/main/addrs/${address}/balance`
   );
-  return response.data.balance;
-}
-async function printBalance(){
-    const balance = await getBalance(address);
-    console.log(balance);
+  const balance = response.data.balance;
+  return balance;
 }
 
-printBalance();
+module.exports = getBalance;

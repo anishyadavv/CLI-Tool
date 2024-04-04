@@ -15,7 +15,9 @@
     "bitcoin-core": "^4.2.0",
     "bitcoinjs-lib": "^6.1.5",
     "dotenv": "^16.4.5",
+    "hdkey": "^2.1.0",
     "tiny-secp256k1": "^2.2.3",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yargs": "^17.7.2"
   }
 }
