@@ -1,10 +1,10 @@
 const axios = require("axios");
 const dotenv = require("dotenv");
-const getAddress = require("./address");
-
 const fs = require("fs");
 const { promisify } = require("util");
 const readFile = promisify(fs.readFile);
+
+const getAddress = require("./address");
 
 dotenv.config();
 
